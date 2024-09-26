@@ -1,3 +1,5 @@
+# This project is based off the "Vigenere Cipher"
+
 # Encrypting the base "Hello World" with an encrypt key
 # The key is decided by the user input
 # The encryptor will decode the letters into their numbers in the alphabet and then add both on top of each other
