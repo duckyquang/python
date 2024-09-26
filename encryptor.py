@@ -1,7 +1,7 @@
 # Encrypting the base "Hello World" with an encrypt key
 # The key is decided by the user input
-# The encryptor will decode the letters into their numbers in the alphabet then add it on top of each other
-# If the number surpasses 26 (the maximum number of letters in the alphabat), it'll restart from the first letter A
+# The encryptor will decode the letters into their numbers in the alphabet and then add both on top of each other
+# If the number surpasses 26 (the maximum number of letters in the alphabet), it'll restart from the first letter A
 # If the letter is the space " " then we will leave it as a " "
 # Enjoy reading with this file!
 
