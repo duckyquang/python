@@ -10,36 +10,39 @@ alphabet = "abcdefghijklmnopqrstuvwxyz"
 
 def Decode(text):
     index = 0
-    list = []
+    decoded_list = []
+    
     while index < len(text):
-        numberized = alphabet.find(text[index].lower()) + 1
-        list.append(numberized)
-        index += 1
-    return list
+        char = text[index].lower()
         
+        if char in alphabet:
+            numberized = alphabet.find(char)
+        else:
+            numberized = -1
+        
+        decoded_list.append(numberized)
+        index += 1
+    return decoded_list
 
 def Encrypt():
     key = str(input("What's the input key: "))
     keyDecoded = Decode(key)
     baseDecoded = Decode(base)
-    
+
     index = 0
     finalList = []
     
     while index < len(baseDecoded):
         final = ""
-        
-        if int(baseDecoded[index]) == 0:
+        if baseDecoded[index] == -1:
             final = " "
         else:
-            final = alphabet[(int(baseDecoded[index]) + int(keyDecoded[index % 6]) - 1) % 27]
-        
+            shift = (baseDecoded[index] + keyDecoded[index % len(keyDecoded)]) % len(alphabet)
+            final = alphabet[shift]
         finalList.append(final)
         index += 1
-    
-    finalText = ""
-    finalText = finalText.join(finalList)
+
+    finalText = "".join(finalList)
     print(finalText)
-    
 
 Encrypt()
