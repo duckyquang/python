@@ -1,3 +1,5 @@
+# Answer to the inverview question of the Dewey Coding Club
+
 import random
 
 alphabet = "abcdefghijklmnopqrstuvwxyz"
