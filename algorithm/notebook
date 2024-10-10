@@ -1,0 +1,80 @@
+# This is a notebook about algorithms.
+
+## Complexity
+
+### Time Complexity
+
+> Definition:
+• The amount of time an algorithm takes to complate as a function of the size of its input (often denoted as n)
+• Predict the runtime of an algorithm (how it grows as the input size increases)
+
+> Common notation:
+• O(1) = Constant time regardless of the input
+• O(log n) = Logarithmic time (e.g. Binary Search -> algorithms that repeatedly divide the input)
+• O(n) = Linear time (run time = input size)
+• O(n log n) = Log-linear time (e.g. Merge Sort or Quick Sort -> efficient sorting algorithms)
+• O(n^2) = Quadratic time (e.g. Buble Sort or Insertion Sort -> algorithms with nested loops)
+• O(2^n) = Exponential time (Brute Force or Netflix Story Mode -> algorithms that every choice lead to multiple sub-choices)
+
+
+### Space Complexity
+
+> Definition:
+• The amount of memory of storage an algorithm uses as a function of the size of the input
+• Includes: the input data + auxiliary variablies (basically all work needed to execute the algorithm)
+
+> Common notation:
+• O(1) = Constant space regardless of the input
+• O(n) = Linear space (grows linearly with the size of the input)
+• O(n^2) = Quadratic space (e.g. storing 2D matrix or using nested data structures)
+
+## Searching Algorithms
+
+### Linear Search
+
+> Mechanism
+• Checks every element in the list sequentially until it finds the target or reaches the end of the list
+
+> Time Complexisty
+• Best case: O(1) -> First term = answer
+• Worst case: O(n) -> Last term = answer or Not found
+
+> Space Complexity
+• O(1) -> Only a few variables are used regardless of the input size
+
+> When to use
+• When the list is unsorted
+• Small datasets where performance isn't critical
+
+### Binary Search
+
+> Mechanism
+• Repeatedly divide the algorithm by half until it finds the target or reaches the end of the lis
+• Dividing by half -> Select the side that contains the input
+
+> Time Complexity
+• O(1) -> First term = answer
+• O(log n) -> Reduces the space by half after each step until the final one
+
+> Space Complexity
+• O(1) -> Iterative implementations (this can work for smaller input size)
+• O(log n) -> Recursive implementations (stack of information after every step)
+
+> When to use
+• When the array is sorted
+• When you're working with large datasets
+
+### Depth First Search
+
+> Mechanism
+• Exploring each branch down as far as possible before backtracking
+
+> Time Complexity
+• O(V+E) -> where V is the number of vertices and E is the number of edges
+• Edges = V - 1 -> Complexity = O(2V-1)
+
+> Space Complexity
+• O(V) -> the depth of the recursion stack is the size of the stack
+
+> When to use
+• When working with trees or graphs that require you to check all the nodes
