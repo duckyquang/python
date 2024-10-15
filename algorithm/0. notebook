@@ -78,3 +78,19 @@
 
 > When to use
 • When working with trees or graphs that require you to check all the nodes
+
+### Breadth First Search
+
+> Mechanism
+• Visiting all neighbors of a root before moving on to the neighbors' neighbors
+• Using a queue to keep track of the nodes that need to be explored
+
+> Time Complexity
+• O(V+E) -> where V is the number of vertices and E is the number of edges
+
+> Space Complexity
+• O(V) -> for the visited set and queue
+
+> When to use
+• Finding the shortest path in an unweighted graph (the first path found to a node is a guaranteed shortest)
+• Exploring nodes level by level
