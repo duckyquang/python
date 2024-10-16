@@ -65,4 +65,4 @@ def main():
         else:
             continue
 
-getInput(['a', 'b'])
+main()
