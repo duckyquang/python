@@ -1,5 +1,4 @@
 import random
-import time
 
 wordList = ['apple', 'cat', 'orange', 'chair', 'enzyme', 'laptop', 'math']
 red = "🔴"
