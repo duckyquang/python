@@ -1,0 +1,13 @@
+import math
+
+def breakdownEquation(equation):
+    i = 0
+
+def calcEquation(a, b, c):
+    i = 0
+
+def main(equation):
+    calcEquation(breakdownEquation(equation))
+
+if __name__ == "__main__":
+    main()
