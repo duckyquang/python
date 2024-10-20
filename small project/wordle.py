@@ -1,6 +1,6 @@
 import random
 
-WORDLIST = ['apple', 'cat', 'boy', 'orange', 'chair', 'enzyme', 'laptop', 'math', 'joy', 'die', 'six', 'opera', 'skibidi', 'sigma']
+WORDLIST = ['input', 'ocean', 'bring', 'under', 'night', 'xylos', 'dream', 'house', 'think', 'voice',  'happy', 'about', 'river', 'magic', 'offer', 'blame', 'dance', 'xenon', 'youth', 'water',  'sound', 'zebra', 'watch', 'laugh', 'great', 'apple', 'march', 'found', 'value', 'jolly',  'jumps', 'could', 'knife', 'right', 'queen', 'north', 'enjoy', 'pride', 'plant', 'grape',  'tiger', 'zippy', 'image', 'urban', 'quiet', 'lemon', 'skill', 'flash', 'young', 'knows']
 RED = "🔴"
 YELLOW = "🟡"
 GREEN = "🟢"
@@ -17,6 +17,7 @@ def getInput(used, word):
         
         if userInput == "STOPTHEGAME":
             continueGame()
+            return True
         elif userInput.lower() in used:
             print("This word has already been guessed!")
             continue
@@ -54,6 +55,8 @@ def screenOutput(userInput, word):
     for letter in word:
         if userInput[index] == word[index]:
             color1 += GREEN
+            listIndex = wordList.index(userInput[index])
+            wordList.remove(wordList[listIndex])
         else:
             color1 += RED
 
@@ -64,8 +67,6 @@ def screenOutput(userInput, word):
     for letter in color1:
         if color1[index] == GREEN:
             color2 += GREEN
-            listIndex = wordList.index(userInput[index])
-            wordList.remove(wordList[listIndex])
         elif color1[index] == RED:
             if userInput[index] in wordList:
                 color2 += YELLOW
@@ -82,7 +83,7 @@ def screenOutput(userInput, word):
             wordOutput += "|"
         index += 1
     
-    print(color2)
+    print(f"\n{color2}")
     print(wordOutput)
     
     if not RED in color2 and not YELLOW in color2:
@@ -94,16 +95,16 @@ def continueGame():
     INPUT = False
     
     while INPUT != True:
-        userInput = input("Continue the game? (y for yes and n for no): ")
+        userInput = input(f"\nContinue the game? (y for yes and n for no): ")
         
         if userInput == "y":
             main()
             INPUT = True
         elif userInput == "n":
-            print("Thank you for playing the game!")
+            print(f"\nThank you for playing the game!")
             INPUT = True
         else:
-            print("Invalid command!")
+            print(f"\nInvalid command!")
             INPUT = False
             continue
 
@@ -123,6 +124,11 @@ def main():
     
     while turn < tries:
         userInput = getInput(used, word)
+        
+        if userInput == True:
+            turn = tries
+            continue
+        
         used.append(userInput)
         
         WIN = screenOutput(userInput, word)
@@ -130,15 +136,17 @@ def main():
         turn += 1
         
         if WIN == True:
-            print(f"Congrats! You have guess the word '{word}' in {turn} tries.")
+            print(f"\nCongrats! You have guess the word '{word}' in {turn} tries.")
             break
         else:
-            print(f"You got {tries - turn} tries left.")
+            print(f"\nYou got {tries - turn} tries left.")
             continue
     
     if WIN == False:
-        print(f"Womp womp! The word is {word}")
+        print(f"Womp womp! The word is {word}.")
     
-    continueGame()
+    if not userInput is True:
+        continueGame()
 
-main()
+if __name__ == "__main__":
+    main()
